@@ -3,8 +3,10 @@
 
 import axios from 'axios'
 
-const api_url = 'https://localhost:8081/api/employee'
 // const api_url = 'http://localhost:8081/api/employee'
+// const api_url = 'https://localhost:8081/api/employee'
+const api_url = 'https://localhost/api/employee'
+// const api_url = '/api/employee'
 
 // export const listEmployee = ()=> {
 //     return axios.get(api_url)
