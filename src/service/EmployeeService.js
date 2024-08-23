@@ -1,6 +1,4 @@
 // crud svc
-
-
 import axios from 'axios'
 
 // const api_url = 'http://localhost:8081/api/employee'
@@ -9,10 +7,14 @@ import axios from 'axios'
 // const api_url = '/api/employee'
 const api_url = 'https://sodi9.store/api/employee'
 
+const timeout = 2000;// 타임아웃을 2초로 설정
+
+
 // export const listEmployee = ()=> {
 //     return axios.get(api_url)
 // }
-export const retrieveEmployee = ()=> axios.get(api_url)// Every request triggered twice 
+
+export const retrieveEmployee = ()=> axios.get(api_url, { timeout })// Every request triggered twice 
 
 export const createEmployee = (employee)=> axios.post(api_url, employee)
 

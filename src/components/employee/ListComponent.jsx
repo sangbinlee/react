@@ -5,11 +5,17 @@ import {
   deleteEmployee,
   retrieveEmployee,
 } from "../../service/EmployeeService";
-
 import PageTitle from "../PageTitle";
+
+import Toast from "react-bootstrap/Toast";
+
 const ListComponent = () => {
+  const [show, setShow] = useState(false);
+
   const [employee, setEmployee] = useState([]);
   const navigator = useNavigate();
+
+  const [msg, setMsg] = useState("");
 
   const isMounted = useRef(false);
   useEffect(() => {
@@ -27,6 +33,11 @@ const ListComponent = () => {
       })
       .catch((error) => {
         console.error("error", error);
+        console.error("error", JSON.stringify(error));
+        console.error("error.message", JSON.stringify(error.message));
+        setMsg(error.message);
+        // alert(error);
+        setShowA(true);
       });
   }
 
@@ -92,17 +103,49 @@ const ListComponent = () => {
     },
   ];
 
+  const [showA, setShowA] = useState(false);
+
+  const toggleShowA = () => setShowA(!showA);
+
   return (
     <>
       <PageTitle title="list" />
       <div className="container">
+        {/* test */}
+
+        {/* toast */}
+        {/* <Button onClick={toggleShowA} className="mb-2">
+          Toggle Toast <strong>with</strong> Animation
+        </Button> */}
+        {/* <div className="toast-container position-fixed bottom-0 end-0 p-3"> */}
+        <Toast show={showA} onClose={toggleShowA} delay={5000} autohide>
+          <Toast.Header>
+            <img
+              src="holder.js/20x20?text=%20"
+              className="rounded me-2"
+              alt=""
+            />
+            <strong className="me-auto">Bootstrap</strong>
+            {/* <small>11 mins ago</small> */}
+            <small>{msg}</small>
+          </Toast.Header>
+          <Toast.Body>{msg}</Toast.Body>
+        </Toast>
+        {/* </div> */}
+
+        {/* test */}
+
         <h2>사용자 목록</h2>
 
         <button type="button" className="btn btn-primary" onClick={form}>
           등록
         </button>
         <div>
-          <input name="keyword" type="text" placeholder="검색어를 입력해주세요"></input>
+          <input
+            name="keyword"
+            type="text"
+            placeholder="검색어를 입력해주세요"
+          ></input>
         </div>
         <Table striped bordered hover>
           <thead>
