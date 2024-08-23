@@ -101,6 +101,9 @@ const ListComponent = () => {
         <button type="button" className="btn btn-primary" onClick={form}>
           등록
         </button>
+        <div>
+          <input name="keyword" type="text" placeholder="검색어를 입력해주세요"></input>
+        </div>
         <Table striped bordered hover>
           <thead>
             <tr>
