@@ -1,5 +1,5 @@
 // crud svc
-import axios from 'axios'
+import axios from 'axios';
 
 // const api_url = 'http://localhost:8081/api/employee'
 // const api_url = 'https://localhost:8081/api/employee'
@@ -14,7 +14,16 @@ const timeout = 2000;// 타임아웃을 2초로 설정
 //     return axios.get(api_url)
 // }
 
-export const retrieveEmployee = ()=> axios.get(api_url, { timeout })// Every request triggered twice 
+// state object 가 전달이 한타임 느림
+// export const retrieveEmployee = (state)=> {
+//     console.log('state', JSON.stringify(state))
+//     return axios.get(`${api_url}?size=${state.limit}&page=${state.activePage-1}`, { timeout })// Every request triggered twice 
+// }
+export const retrieveEmployee = (firstName, email, role, limit, activePage)=> {
+    console.log('limit', JSON.stringify(limit))
+    console.log('activePage', JSON.stringify(activePage))
+    return axios.get(`${api_url}?firstName=${firstName}&email=${email}&role=${role}&size=${limit}&page=${activePage-1}`, { timeout })// Every request triggered twice 
+}
 
 export const createEmployee = (employee)=> axios.post(api_url, employee)
 
