@@ -5,7 +5,7 @@ import axios from 'axios';
 // const api_url = 'https://localhost:8081/api/employee'
 // const api_url = 'https://localhost/api/employee'
 // const api_url = '/api/employee'
-const api_url = 'https://sodi9.store/api/employee'
+const api_url = 'https://common.sodi9.store/api/employee'
 
 const timeout = 2000;// 타임아웃을 2초로 설정
 

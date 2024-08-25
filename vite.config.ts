@@ -5,19 +5,19 @@ import { defineConfig } from "vite";
 export default defineConfig({
   plugins: [react()],
   server: {
-    https: {
-      // key: './vue3-app-2-privateKey.key',
-      // cert: './vue3-app-2.crt'
-      key: "./private.key",
-      cert: "./certificate.crt",
-    },
+    // https: {
+    //   // key: './vue3-app-2-privateKey.key',
+    //   // cert: './vue3-app-2.crt'
+    //   key: "./private.key",
+    //   cert: "./certificate.crt",
+    // },
     proxy: {
       "/api": {
         target: "https://localhost:8081",
         changeOrigin: true,
-        configure: (proxy, options) => {
+        // configure: (proxy, options) => {
           // proxy will be an instance of 'http-proxy'
-        },
+        // },
       },
     },
   },
