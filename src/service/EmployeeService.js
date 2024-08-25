@@ -22,7 +22,7 @@ const timeout = 2000;// 타임아웃을 2초로 설정
 export const retrieveEmployee = (firstName, email, role, limit, activePage)=> {
     console.log('limit', JSON.stringify(limit))
     console.log('activePage', JSON.stringify(activePage))
-    return axios.get(`${api_url}?firstName=${firstName}&email=${email}&role=${role}&size=${limit}&page=${activePage-1}`, { timeout })// Every request triggered twice 
+    return axios.get(`${api_url}?sort=id,desc&firstName=${firstName}&email=${email}&role=${role}&size=${limit}&page=${activePage-1}`, { timeout })// Every request triggered twice 
 }
 
 export const createEmployee = (employee)=> axios.post(api_url, employee)
