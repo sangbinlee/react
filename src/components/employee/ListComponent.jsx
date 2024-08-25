@@ -283,11 +283,15 @@ const ListComponent = () => {
         {/* test */}
         <h2>사용자 검색</h2>
         <div>
-          <input
+          {/* <input
             name="keyword"
             type="text"
             placeholder="검색어를 입력해주세요"
-          ></input>
+          ></input> */}
+
+          <button type="button" className="btn btn-primary" onClick={form}>
+            등록
+          </button>
         </div>
         <form>
           <div className="mb-3">
